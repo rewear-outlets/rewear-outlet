@@ -33,7 +33,7 @@ header{position:sticky;top:0;z-index:5;background:#000;padding:calc(10px + env(s
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.25s;z-index:10}.ov.on{opacity:1;pointer-events:auto}
 .sh{position:fixed;left:0;right:0;bottom:0;max-height:92vh;overflow:auto;background:#fff;border-radius:20px 20px 0 0;z-index:11;transform:translateY(105%);transition:transform .3s;padding:0 16px calc(20px + env(safe-area-inset-bottom))}.sh.on{transform:none}
 .x{position:sticky;top:10px;float:right;background:#000;color:var(--g);border:0;border-radius:99px;width:32px;height:32px;font-size:18px;z-index:2}
-.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:0 -16px;scrollbar-width:none}.gal img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:1;object-fit:cover}
+.gal{display:flex;align-items:center;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;scrollbar-width:none;background:#f4f4f4}.gal img{flex:0 0 100%;width:100%;height:auto;max-height:72vh;scroll-snap-align:start;object-fit:contain}body.dk .gal{background:#222}
 .sz{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.sz button{min-width:44px;padding:8px 12px;border:1px solid #ccc;border-radius:10px;background:#fff}
 .btn{width:100%;padding:14px;border:0;border-radius:12px;background:#000;color:var(--g);font-weight:800;font-size:15px;margin-top:10px}.btn.wa{background:var(--g);color:#000}.btn:disabled{opacity:.4}
 .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--ln)}
