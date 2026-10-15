@@ -1,0 +1,27 @@
+name: Unpack zip
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip project into repo
+        run: |
+          Z=$(find . -maxdepth 1 -name '*.zip' | head -1)
+          [ -z "$Z" ] && { echo "Repo ke upar koi .zip nahi mili"; ls -la; exit 1; }
+          mkdir /tmp/x && unzip -q "$Z" -d /tmp/x
+          F=$(find /tmp/x -path '*/app/www/index.html' | head -1)
+          [ -z "$F" ] && { echo "zip ke andar app/www/index.html nahi"; exit 1; }
+          R="$(dirname "$F")/../.."
+          rm -rf "$R/.github"
+          [ -f data/data.json ] && rm -rf "$R/data"
+          cp -a "$R"/. .
+          git rm -q "$Z"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Unpack project files"
+          git push
