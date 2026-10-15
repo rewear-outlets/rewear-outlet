@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000"><title>Rewear Outlet</title><link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#C9A227;--m:#6b6b6b;--ln:#e8e8e8;color-scheme:light}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font:14px/1.5 Manrope,system-ui,sans-serif;color:#111;background:#fff}
+button,input,select,textarea{font:inherit;color:#111}
+header{position:sticky;top:0;z-index:5;background:#000;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;justify-content:space-between;align-items:center}
+.logo{font:700 24px/1 "Bodoni Moda",Georgia,serif;color:var(--g)}
+.logo small{display:block;font:600 10px Manrope,sans-serif;color:#fff;letter-spacing:.18em}
+.cb{background:none;border:1px solid var(--g);color:var(--g);border-radius:99px;padding:7px 14px;font-weight:700}
+.cb b{background:var(--g);color:#000;border-radius:99px;padding:0 7px;margin-left:6px}
+.ban{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:#000}
+.ban::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:16/8;display:flex;align-items:flex-end}
+.sl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8}
+.sl span{position:relative;padding:16px;color:#fff;font:700 24px/1.2 "Bodoni Moda",Georgia,serif}
+.bar{padding:12px 16px 0}#q{width:100%;padding:12px 16px;border:1px solid var(--ln);border-radius:99px;background:#fafafa}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
+.chips button{flex:none;padding:7px 14px;border-radius:99px;border:1px solid #ccc;background:#fff}
+.chips .on,.sz .on{background:#000;color:var(--g);border-color:#000}
+.fl{display:flex;gap:8px;padding:0 16px 8px}.fl select{flex:1;padding:8px;border:1px solid var(--ln);border-radius:10px;background:#fff}
+#grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:8px 16px 40px}
+@media(min-width:700px){#grid{grid-template-columns:repeat(4,1fr)}}
+.card{border:1px solid var(--ln);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .15s}.card:active{transform:scale(.97)}
+.im{position:relative;aspect-ratio:3/4;background:#f2f2f2}.im img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:8px;left:8px;background:#000;color:var(--g);font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px}.tag.r{left:auto;right:8px;background:var(--g);color:#000}
+.t{padding:8px 10px}.t h3{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pr{font-weight:800}.pr s{color:var(--m);font-weight:400;margin-left:6px;font-size:12px}.mu{color:var(--m);font-size:12px}
+.em{grid-column:1/-1;text-align:center;color:var(--m);padding:40px 0}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.25s;z-index:10}.ov.on{opacity:1;pointer-events:auto}
+.sh{position:fixed;left:0;right:0;bottom:0;max-height:92vh;overflow:auto;background:#fff;border-radius:20px 20px 0 0;z-index:11;transform:translateY(105%);transition:transform .3s;padding:0 16px calc(20px + env(safe-area-inset-bottom))}.sh.on{transform:none}
+.x{position:sticky;top:10px;float:right;background:#000;color:var(--g);border:0;border-radius:99px;width:32px;height:32px;font-size:18px;z-index:2}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:0 -16px;scrollbar-width:none}.gal img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:1;object-fit:cover}
+.sz{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.sz button{min-width:44px;padding:8px 12px;border:1px solid #ccc;border-radius:10px;background:#fff}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;background:#000;color:var(--g);font-weight:800;font-size:15px;margin-top:10px}.btn.wa{background:var(--g);color:#000}.btn:disabled{opacity:.4}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--ln)}
+.q button{width:28px;height:28px;border-radius:50%;border:1px solid #ccc;background:#fff}
+.f input,.f textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px;margin-top:8px}
+h2.hd{font:700 22px "Bodoni Moda",Georgia,serif;padding:14px 0 6px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:#000;color:var(--g);padding:10px 18px;border-radius:99px;opacity:0;transition:.25s;z-index:20;pointer-events:none}#toast.on{opacity:1;transform:translate(-50%,0)}
+footer{background:#000;color:#ddd;padding:24px 16px calc(24px + env(safe-area-inset-bottom));font-size:13px}footer h4{font:700 20px "Bodoni Moda",Georgia,serif;color:var(--g)}footer p{margin:6px 0}.so{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.so a{border:1px solid var(--g);color:var(--g);border-radius:99px;padding:7px 14px;text-decoration:none;font-weight:700}
+
+body.dk{background:#121212;color:#eee;--m:#9a9a9a;--ln:#2c2c2c}
+body.dk button,body.dk input,body.dk select,body.dk textarea{color:#eee}
+body.dk #q,body.dk .fl select,body.dk .f input,body.dk .f textarea,body.dk .chips button,body.dk .sz button,body.dk .q button,body.dk .tg button{background:#1e1e1e;border-color:#333}
+body.dk .sh,body.dk .card{background:#1a1a1a}body.dk .im{background:#222}
+body.dk .chips .on,body.dk .sz .on,body.dk .tg .on{background:var(--g);color:#000;border-color:var(--g)}
+body.dk .btn:not(.wa){background:#2a2a2a}
+#sp{position:fixed;inset:0;z-index:99;background:radial-gradient(circle at 50% 35%,#2a2a2a,#000 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:24px;transition:opacity .6s,visibility .6s}#sp.off{opacity:0;visibility:hidden}
+#sp img{width:132px;height:132px;border-radius:28px;box-shadow:0 0 0 2px var(--g),0 0 40px rgba(201,162,39,.45);animation:pop .9s cubic-bezier(.2,1.4,.4,1) both,glow 2s 1s infinite alternate}
+#sp h1{font:700 28px/1.1 "Bodoni Moda",Georgia,serif;color:var(--g);margin-top:22px;letter-spacing:.08em;animation:up .8s .5s both}
+#sp h1 small{display:block;font:700 46px "Bodoni Moda",Georgia,serif;color:#fff;letter-spacing:.05em}
+#sp p{max-width:290px;margin-top:12px;font-size:13px;color:#ccc;animation:up .8s .9s both}
+#sp i{display:block;width:160px;height:3px;border-radius:9px;background:#333;margin-top:30px;overflow:hidden;animation:up .6s 1.1s both}#sp i:after{content:"";display:block;height:100%;width:40%;background:linear-gradient(90deg,transparent,var(--g),transparent);animation:ld 1.1s infinite}
+@keyframes pop{from{transform:scale(.3) rotate(-20deg);opacity:0}}@keyframes up{from{transform:translateY(18px);opacity:0}}@keyframes ld{from{transform:translateX(-100%)}to{transform:translateX(350%)}}@keyframes glow{to{box-shadow:0 0 0 2px var(--g),0 0 70px rgba(201,162,39,.8)}}
+.tg{display:flex;gap:6px}.tg button{flex:1;padding:10px;border:1px solid #ccc;border-radius:10px;background:#fff}.tg .on{background:#000;color:var(--g);border-color:#000}
+.lk{display:flex;justify-content:space-between;width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--ln);background:none;text-align:left;font-weight:600}
+details{border-bottom:1px solid var(--ln);padding:12px 0}summary{font-weight:700;cursor:pointer}details p{margin-top:8px;color:var(--m)}.ab p{margin:8px 0}
+footer{border-top:3px solid var(--g)}footer .lg{display:flex;gap:12px;align-items:center}footer .lg img{width:52px;height:52px;border-radius:12px}footer .qs{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0}footer .qs a{color:#fff;text-decoration:underline;text-decoration-color:var(--g)}footer .ct{border-top:1px solid #333;margin-top:14px;padding-top:6px}footer .cp{margin-top:18px;font-size:11px;color:#888;text-align:center}
+</style>
+</head><body><div id="sp"><img src="logo.png" alt=""><h1><small>AA</small>REWEAR OUTLET</h1><p>“High Fashion, friendly prices: Upgrade your style today!”</p><i></i></div>
+<header><div class="logo">Rewear<small>outLet Multan</small></div><div style="display:flex;gap:8px"><button class="cb" onclick="stOpen()" aria-label="Settings">⚙</button><button class="cb" onclick="cartOpen()">Cart<b id="cc">0</b></button></div></header>
+<div class="ban" id="ban"></div>
+<div class="bar"><input id="q" type="search" placeholder="Search shirts, jeans, shoes" oninput="grid()"></div>
+<div class="chips" id="chips"></div>
+<div class="fl"><select id="so" onchange="grid()"><option value="">Newest first</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select>
+<select id="cd" onchange="grid()"><option value="">Any condition</option><option>New</option><option>Like New</option><option>Good</option><option>Fair</option></select></div>
+<main id="grid"></main><footer id="ft"></footer>
+<div class="ov" id="ov" onclick="closeS()"></div><div class="sh" id="pd"></div><div class="sh" id="ct"></div><div class="sh" id="st"></div><div class="sh" id="ab"></div><div class="sh" id="po"></div><div id="toast"></div>
+<script>
+const DATA_URL="__DATA_URL__",BASE=DATA_URL.startsWith("__")?location.origin+location.pathname.replace(/[^\/]*$/,"")+"data.json":DATA_URL;
+const $=s=>document.querySelector(s),CATS=["All","New","Shirts","T-Shirts","Jeans","Trousers","Shoes","Jackets","Accessories"];
+const e=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rs=n=>"Rs. "+Number(n).toLocaleString("en-PK"),fin=p=>Math.round(p.price*(1-(p.discount||0)/100));
+let P=[],S={email:"rewear.outlets@gmail.com",whatsapp:"",delivery:0,about:"Premium thrift fashion, handpicked in Multan. Quality branded clothes at affordable prices.",ceo:"ADIL & ASGHAR",address:"SHOP, KOT RAB NAWAZ, VEHARI ROAD, MULTAN"},cat="All",cur=null,sz=null,cart=[];
+try{cart=JSON.parse(localStorage.getItem("rw_cart")||"[]")}catch(_){}
+let PF={dk:0,sz:1,nt:0,seen:null};try{PF={...PF,...JSON.parse(localStorage.getItem("rw_pf")||"{}")}}catch(_){}
+const sv=()=>{try{localStorage.setItem("rw_pf",JSON.stringify(PF))}catch(_){}};
+function applyPf(){document.body.classList.toggle("dk",!!PF.dk);document.body.style.zoom=[.9,1,1.12][PF.sz]||1}applyPf();
+const save=()=>{try{localStorage.setItem("rw_cart",JSON.stringify(cart))}catch(_){}$("#cc").textContent=cart.reduce((a,i)=>a+i.qty,0)};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2200)};
+const isNew=p=>p.createdAt&&p.createdAt>Date.now()-14*864e5;
+$("#chips").innerHTML=CATS.map(c=>`<button class="${c=="All"?"on":""}" onclick="setCat('${c}',this)">${c=="New"?"New arrivals":c}</button>`).join("");
+function setCat(c,b){cat=c;document.querySelectorAll("#chips button").forEach(x=>x.classList.toggle("on",x==b));grid()}
+function grid(){const q=$("#q").value.toLowerCase(),c=$("#cd").value,o=$("#so").value;
+const a=P.filter(p=>(cat=="All"||(cat=="New"?isNew(p):p.category==cat))&&(p.name||"").toLowerCase().includes(q)&&(!c||p.condition==c));
+if(o)a.sort((x,y)=>o=="lo"?fin(x)-fin(y):fin(y)-fin(x));
+$("#grid").innerHTML=a.map(p=>`<div class="card" onclick="show('${p.id}')"><div class="im"><img loading="lazy" src="${p.images?.[0]||""}" alt="${e(p.name)}">${isNew(p)?'<span class="tag">New</span>':""}${p.discount?`<span class="tag r">-${p.discount}%</span>`:""}</div><div class="t"><h3>${e(p.name)}</h3><div class="pr">${rs(fin(p))}${p.discount?`<s>${rs(p.price)}</s>`:""}</div><div class="mu">${e(p.condition)}, ${p.stock>0?(p.stock<4?"only "+p.stock+" left":"in stock"):"out of stock"}</div></div></div>`).join("")||'<p class="em">No items found. Try another category or clear your search.</p>'}
+const IMG=u=>/^(data:|http)/.test(u||"")?u:BASE.replace("data.json","")+u;
+function ft(){const wa=String(S.whatsapp||"").replace(/\D/g,""),L=[["WhatsApp",wa&&"https://wa.me/"+wa],["TikTok",S.tiktok],["Facebook",S.facebook],["Instagram",S.instagram]].filter(x=>/^https?:/i.test(x[1]||""));
+$("#ft").innerHTML=`<div class="lg"><img src="logo.png" alt=""><div><h4>Rewear Outlet</h4><div style="font-size:11px;letter-spacing:.25em;color:#aaa">MULTAN</div></div></div><p style="font-style:italic;margin-top:10px">“High fashion, friendly prices: Upgrade your style today!”</p><div class="qs"><a href="#" onclick="abOpen();return false">About</a><a href="#" onclick="poOpen();return false">Policies</a><a href="#" onclick="stOpen();return false">Settings</a></div><p>${e(S.about)}</p><div class="ct">${S.ceo?`<p>👤 <b>CEO &amp; Partners:</b> ${e(S.ceo)}</p>`:""}${S.address?`<p>📍 ${e(S.address)}</p>`:""}${S.email?`<p>✉ <a href="mailto:${e(S.email)}" style="color:var(--g)">${e(S.email)}</a></p>`:""}</div><div class="so">${L.map(([n,u])=>`<a href="${e(u)}" onclick="go(this.href);return false">${n}</a>`).join("")}</div><div class="cp">© ${new Date().getFullYear()} Rewear Outlet. All rights reserved.<br>App developed by Muhammad Suleman Akram</div>`}
+ft();
+function use(d){P=(d.products||[]).map(p=>({...p,images:(p.images||[]).map(IMG)})).sort((a,b)=>b.createdAt-a.createdAt);S={...S,...d.settings};sync();newCheck();const b=d.banners||[];$("#ban").innerHTML=b.length?b.map(x=>`<div class="sl"><img src="${IMG(x.image)}" alt=""><span>${e(x.title)}</span></div>`).join(""):'<div class="sl"><span>Affordable fashion, handpicked in Multan</span></div>';ft();grid()}
+async function load(){try{const r=await fetch(BASE+"?t="+Math.floor(Date.now()/60000),{cache:"no-store"});const d=await r.json();try{localStorage.setItem("rw_data",JSON.stringify(d))}catch(_){}use(d)}catch(_){try{use(JSON.parse(localStorage.getItem("rw_data")))}catch(_){$("#grid").innerHTML='<p class="em">Can’t load products. Check your internet connection.</p>'}}}
+load();setInterval(load,120000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
+setInterval(()=>{const b=$("#ban");if(b.scrollWidth>b.clientWidth*1.5)b.scrollTo({left:b.scrollLeft+b.clientWidth>=b.scrollWidth-5?0:b.scrollLeft+b.clientWidth,behavior:"smooth"})},4000);
+function openS(id){$("#ov").classList.add("on");$("#"+id).classList.add("on");document.body.style.overflow="hidden"}
+function closeS(){document.querySelectorAll(".sh,.ov").forEach(x=>x.classList.remove("on"));document.body.style.overflow=""}
+function show(id){cur=P.find(p=>p.id==id);sz=null;const p=cur,out=!(p.stock>0);
+$("#pd").innerHTML=`<button class="x" onclick="closeS()">×</button><div class="gal">${(p.images||[]).map(i=>`<img src="${i}" alt="">`).join("")}</div><h2 class="hd">${e(p.name)}</h2><div class="pr" style="font-size:18px">${rs(fin(p))}${p.discount?`<s>${rs(p.price)}</s>`:""}</div><p class="mu">${e(p.category)}, ${e(p.condition)} condition, ${out?"out of stock":p.stock+" in stock"}</p>${p.sizes?.length?`<p style="margin-top:10px;font-weight:600">Size</p><div class="sz">${p.sizes.map(s=>`<button data-s="${e(s)}" onclick="pick(this)">${e(s)}</button>`).join("")}</div>`:""}<p style="margin:8px 0">${e(p.description)}</p><button class="btn" ${out?"disabled":""} onclick="add()">${out?"Out of stock":"Add to cart"}</button>`;openS("pd")}
+const go=u=>{const B=window.Capacitor?.Plugins?.Browser;if(B)B.open({url:u});else window.open(u,"_blank")};
+setTimeout(()=>$("#sp").classList.add("off"),2600);
+function sync(){cart=cart.filter(i=>{const p=P.find(x=>x.id==i.id);if(!p||p.stock<1)return false;i.price=fin(p);i.stock=p.stock;i.name=p.name;i.qty=Math.min(i.qty,p.stock);return true});save()}
+function notify(t,b){if(!PF.nt)return;try{const L=window.Capacitor?.Plugins?.LocalNotifications;if(L)L.schedule({notifications:[{id:Date.now()%2147483647,title:t,body:b}]});else if(window.Notification&&Notification.permission=="granted")new Notification(t,{body:b,icon:"logo.png"})}catch(_){}}
+function newCheck(){const ids=P.map(p=>p.id);if(PF.seen){const nw=P.filter(p=>!PF.seen.includes(p.id)&&p.stock>0);if(nw.length){notify("New at Rewear Outlet 🔥",nw.length>1?nw.length+" new items just landed":nw[0].name+" just landed");toast("New items added: "+nw.length)}}PF.seen=ids;sv()}
+async function nt(v){if(v){const L=window.Capacitor?.Plugins?.LocalNotifications;let ok=false;try{if(L)ok=(await L.requestPermissions()).display=="granted";else if(window.Notification)ok=(await Notification.requestPermission())=="granted"}catch(_){}if(!ok){toast("Allow notifications in phone settings");v=0}}PF.nt=v?1:0;sv();stOpen()}
+function pf(k,v){PF[k]=v;sv();applyPf();stOpen()}
+function openX(f){closeS();f()}
+function stOpen(){$("#st").innerHTML=`<button class="x" onclick="closeS()">×</button><h2 class="hd">Settings</h2><p class="mu">Theme</p><div class="tg"><button class="${PF.dk?"":"on"}" onclick="pf('dk',0)">☀ Light</button><button class="${PF.dk?"on":""}" onclick="pf('dk',1)">☾ Dark</button></div><p class="mu" style="margin-top:14px">Screen size</p><div class="tg">${["Small","Normal","Large"].map((t,i)=>`<button class="${PF.sz==i?"on":""}" onclick="pf('sz',${i})">${t}</button>`).join("")}</div><p class="mu" style="margin-top:14px">New product alerts</p><div class="tg"><button class="${PF.nt?"on":""}" onclick="nt(1)">On</button><button class="${PF.nt?"":"on"}" onclick="nt(0)">Off</button></div><div style="margin-top:14px"><button class="lk" onclick="openX(abOpen)">About us <span>›</span></button><button class="lk" onclick="openX(poOpen)">Policies <span>›</span></button><button class="lk" onclick="load();toast('Refreshing...')">Refresh products <span>↻</span></button><button class="lk" onclick="cart=[];save();toast('Cart cleared')">Clear cart <span>🗑</span></button><a class="lk" style="text-decoration:none;color:inherit" href="mailto:${e(S.email)}">Contact: ${e(S.email)} <span>✉</span></a></div><p class="mu" style="text-align:center;margin-top:14px">Rewear Outlet v1.0</p>`;openS("st")}
+function abOpen(){$("#ab").innerHTML=`<button class="x" onclick="closeS()">×</button><h2 class="hd">About us</h2><div class="ab"><p>${e(S.about)}</p><p><b>CEO &amp; Partners:</b> ${e(S.ceo)}</p><p><b>Address:</b> ${e(S.address)}</p><p><b>Email:</b> <a href="mailto:${e(S.email)}">${e(S.email)}</a></p><p><b>App developed by:</b> Muhammad Suleman Akram</p></div>`;openS("ab")}
+const POL=[["Privacy Policy","We collect your name, phone number and address only when you place an order, and only to deliver it. Details go straight to our WhatsApp. We never sell or share your data."],["Return & Exchange","Please check items and sizes before ordering. Exchange is possible within 3 days if the item is unused and has a genuine fault or wrong size. Sale items are final."],["Delivery","Charges are shown in your cart before you order. Delivery time is confirmed with you on WhatsApp."],["Terms of Use","Items are pre-loved or surplus branded clothing, sold as shown and described. Prices and stock can change without notice. An order is confirmed only after our WhatsApp reply."]];
+function poOpen(){$("#po").innerHTML=`<button class="x" onclick="closeS()">×</button><h2 class="hd">Policies</h2>`+POL.map(([t,b])=>`<details><summary>${e(t)}</summary><p>${e(b)}</p></details>`).join("");openS("po")}
+function pick(b){sz=b.dataset.s;b.parentNode.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x==b))}
+function add(){const p=cur;if(p.sizes?.length&&!sz)return toast("Choose a size first");
+const k=cart.find(i=>i.id==p.id&&i.size==(sz||""));if(k){if(k.qty>=p.stock)return toast("No more stock available");k.qty++}else cart.push({id:p.id,name:p.name,size:sz||"",price:fin(p),qty:1,stock:p.stock});
+save();closeS();toast("Added to cart")}
+const sub=()=>cart.reduce((a,i)=>a+i.price*i.qty,0);
+function cartOpen(){drawCart();openS("ct")}
+function drawCart(){const v=["nm","ph","ad"].map(x=>$("#"+x)?.value||""),f=cart.length?Number(S.delivery)||0:0,s=sub();
+$("#ct").innerHTML=`<button class="x" onclick="closeS()">×</button><h2 class="hd">Your cart</h2>`+(cart.length?cart.map((i,n)=>`<div class="row"><div><b>${e(i.name)}</b><div class="mu">${i.size?"Size "+e(i.size)+", ":""}${rs(i.price)}</div></div><div class="q"><button onclick="chg(${n},-1)">−</button> ${i.qty} <button onclick="chg(${n},1)">+</button></div></div>`).join("")+`<div class="row"><span>Subtotal</span><b>${rs(s)}</b></div><div class="row"><span>Delivery</span><b>${rs(f)}</b></div><div class="row"><span>Total</span><b style="font-size:18px">${rs(s+f)}</b></div><div class="f"><input id="nm" placeholder="Full name" autocomplete="name"><input id="ph" type="tel" placeholder="Phone number" autocomplete="tel"><textarea id="ad" rows="3" placeholder="Delivery address"></textarea></div><button class="btn wa" id="ob" onclick="order()">Order on WhatsApp</button>`:'<p class="em" style="display:block">Your cart is empty. Pick something you like.</p>');
+["nm","ph","ad"].forEach((x,i)=>{const el=$("#"+x);if(el)el.value=v[i]})}
+function chg(n,d){const i=cart[n];i.qty+=d;if(i.qty>i.stock){i.qty=i.stock;toast("That's all we have in stock")}if(i.qty<1)cart.splice(n,1);save();drawCart()}
+async function order(){const nm=$("#nm").value.trim(),ph=$("#ph").value.trim(),ad=$("#ad").value.trim();
+if(!nm||ph.replace(/\D/g,"").length<10||ad.length<8)return toast("Enter your name, phone and full address");
+const wa=String(S.whatsapp||"").replace(/\D/g,"");if(!wa)return toast("The store's WhatsApp isn't set up yet");
+const s=sub(),f=Number(S.delivery)||0,t=s+f;$("#ob").disabled=true;
+const msg=`*New order - Rewear outLet Multan*\n\n`+cart.map((i,n)=>`${n+1}. ${i.name}${i.size?" (Size "+i.size+")":""} x${i.qty} = ${rs(i.price*i.qty)}`).join("\n")+`\n\nSubtotal: ${rs(s)}\nDelivery: ${rs(f)}\n*Total: ${rs(t)}*\n\nName: ${nm}\nPhone: ${ph}\nAddress: ${ad}`;
+go("https://wa.me/"+wa+"?text="+encodeURIComponent(msg));$("#ob").disabled=false;setTimeout(()=>{if(confirm("Order WhatsApp par bhej diya? Cart khali kar dein?")){cart=[];save();closeS()}},1500)}
+save();
+</script></body></html>
